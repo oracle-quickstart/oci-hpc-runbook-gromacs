@@ -21,18 +21,18 @@
 You can start by logging in the Oracle Cloud console. If this is the first time, instructions to do so are available [here](https://docs.cloud.oracle.com/iaas/Content/GSG/Tasks/signingin.htm).
 Select the region in which you wish to create your instance. Click on the current region in the top right dropdown list to select another one. 
 
-<img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/Region.png" height="50">
+<img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/Region.png" height="50">
 
 ### Virtual Cloud Network
 Before creating an instance, we need to configure a Virtual Cloud Network. 
- 1. Select the menu <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/menu.png" height="20"> on the top left, then select Networking --> Virtual Cloud Networks. Click <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/create_vcn.png" height="20">.
+ 1. Select the menu <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/menu.png" height="20"> on the top left, then select Networking --> Virtual Cloud Networks. Click <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/create_vcn.png" height="20">.
 
  2. On the next page, select the following: 
     * Name of your VCN
     * Compartment of your VCN
     * Choose "CREATE VIRTUAL CLOUD NETWORK"
 
- 3. Scroll all the way down and <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/create_vcn.png" height="20">.
+ 3. Scroll all the way down and <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/create_vcn.png" height="20">.
 
  4. Following creation of the VCN, configure a public subnet, an internet gateway, a security list and route table, per the below instructions:
     * [Subnets](https://docs.cloud.oracle.com/en-us/iaas/Content/Network/Tasks/managingVCNs.htm?Highlight=subnet)
@@ -43,11 +43,11 @@ Before creating an instance, we need to configure a Virtual Cloud Network.
 
 ### Compute Instance
 
- 1. Create a new instance by selecting the menu <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/menu.png" height="20"> on the top left, then select Compute --> Instances. 
+ 1. Create a new instance by selecting the menu <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/menu.png" height="20"> on the top left, then select Compute --> Instances. 
 
-    <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/Instances.png" height="300">
+    <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/Instances.png" height="300">
 
- 2. On the next page, select <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/create_instance.png" height="25">.
+ 2. On the next page, select <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/create_instance.png" height="25">.
 
  3. On the next page, select the following:
     * Name of your instance.
@@ -62,7 +62,7 @@ Before creating an instance, we need to configure a Virtual Cloud Network.
     * SSH key: Attach your public key file. For more information, click [here](https://docs.cloud.oracle.com/iaas/Content/GSG/Tasks/creatingkeys.htm).
     * Virtual Cloud Network: Select the network that you previously created.
 
- 4. Click <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/create.png" height="25">.
+ 4. Click <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/create.png" height="25">.
 
  5. After a few minutes, the instances will turn green, meaning it is up and running. Click on the instance name in the console to identify the public IP. You can now connect using `ssh opc@xx.xx.xx.xx` from the machine using the key that was provided during the creation. 
 
@@ -75,7 +75,7 @@ Before creating an instance, we need to configure a Virtual Cloud Network.
 
  1. Create a new Block Volume by selecting the menu <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/menu.png" height="20"> on the top left, then select Block Storage --> Block Volumes.
 
- 2. Click <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/create_bv.png" height="25">.
+ 2. Click <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/menu.png" height="25">.
 
  3. On the next page, select the following: 
      * Name
@@ -83,30 +83,30 @@ Before creating an instance, we need to configure a Virtual Cloud Network.
      * Size (in GB)
      * Availability Domain: Make sure to select the same as your Compute Instance. 
 
- 4. Click <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/create_bv.png" height="25">.
+ 4. Click <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/create_bv.png" height="25">.
 
- 5. Select the menu <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/menu.png" height="20"> on the top left, then select Compute and Instances.
+ 5. Select the menu <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/menu.png" height="20"> on the top left, then select Compute and Instances.
 
  6. Click on the instance to which the drive will be attached.
 
  7. On the lower left, in the Resources menu, click on "Attached Block Volumes".
 
-    <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/resources.png" height="200">
+    <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/resources.png" height="200">
 
- 8. Click <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/attach_BV.png" height="25">
+ 8. Click <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/attach_BV.png" height="25">
 
  9. All the default settings will work fine. Select the Block Volume that was just created and specify /dev/oracleoci/oraclevdb as device path. 
-  Click <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/attach.png" height="25">.
+  Click <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/attach.png" height="25">.
 
     **Note: If you do not see the Block Volume, it may be because you did not place it in the same AD as your running instance**
 
  10. Once it is attached, hit the 3 dots at the far right of the Block Volume description and select "iSCSi Commands and Information". 
 
-     <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/ISCSi.png" height="150">
+     <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/ISCSi.png" height="150">
 
  11. Copy and execute the commands to attach the block volume to the instance. 
 
-     <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/iscsi_commands.png" height="200">
+     <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/iscsi_commands.png" height="200">
 
 
 ### Mounting a Block Storage or NVME SSD Drive
@@ -133,11 +133,11 @@ The drive should be listed with the NAME on the left (Probably sdb for block and
 
 If you want to view and perform post-processing on a separate node than the main compute node, you need to create a new instance. 
 
- 1. Create a new instance by selecting the menu <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/menu.png" height="20"> then Compute --> Instances. 
+ 1. Create a new instance by selecting the menu <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/menu.png" height="20"> then Compute --> Instances. 
 
-    <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/Instances.png" height="300">
+    <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/Instances.png" height="300">
 
- 2. On the next page, select <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/create_instance.png" height="25">
+ 2. On the next page, select <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/create_instance.png" height="25">
 
  3. On the next page, select the following:
     * Name of your instance.
@@ -153,7 +153,7 @@ If you want to view and perform post-processing on a separate node than the main
     * SSH key: Attach your public key file. [For more information](https://docs.cloud.oracle.com/iaas/Content/GSG/Tasks/creatingkeys.htm).
     * Virtual Cloud Network: Select the network that you have previously created.
 
- 4. Click <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/create_instance.png" height="20">
+ 4. Click <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/create_instance.png" height="20">
 
  5. After a few minutes, the instances will turn green, meaning it is up and running. Click on the instance name in the console to identify the public IP. You can now connect using `ssh opc@xx.xx.xx.xx` from the machine using the key that was provided during the creation. 
 
@@ -224,7 +224,7 @@ If you would rather connect without a SSH tunnel, you will need to open ports 59
    ```
    sudo firewall-offline-cmd --zone=public --add-port=5900-5901/tcp
    ```
-  2. Select the menu <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/menu.png" height="20"> on the top left, then select Networking --> Virtual Cloud Networks. <img src="https://github.com/oci-hpc/oci-hpc-runbook-shared/blob/master/images/create_vcn.png" height="20">
+  2. Select the menu <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/menu.png" height="20"> on the top left, then select Networking --> Virtual Cloud Networks. <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/create_vcn.png" height="20">
 
  3. Select the VCN that you created. Select the Subnet in which the machine reside, probably your public subnet. Select the security list. 
 
