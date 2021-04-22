@@ -1,4 +1,4 @@
-# <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/master/Images/gromacs-logo.png" height="80" width="220"> Runbook
+# <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/gromacs-logo.png" height="80" width="220"> Runbook
 
 ## Deployment through Resource Manager
 
