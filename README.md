@@ -1,4 +1,4 @@
-# <img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/gromacs-logo.png" height="80" width="220"> Runbook
+# <img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/gromacs-logo.png" height="80" width="220"> Runbook
 
 ## Introduction
 This Runbook provides the steps to deploy a GPU machine on Oracle Cloud Infrastructure, install Gromacs, and run a benchmark using Gromacs software.  
@@ -7,13 +7,13 @@ Gromacs is a molecular dynamics software that simulates the movements of atoms i
 
 Gromacs supports running on CPU's or GPU's and supports parallel processing. It was developed by the University of Gronigen and is now maintained by various contributors around the world. More information can be found [here](http://www.gromacs.org/).
 
-<img align="center" src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/6LU7_Covid-19.gif" height="180" > 
+<img align="center" src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/6LU7_Covid-19.gif" height="180" > 
 
 ## Architecture
 The architecture for this runbook is simple, a single machine running inside of an OCI VCN with a public subnet.  
 Since a GPU instance is used, block storage is attached to the instance and installed with the Gromacs application. 
 The instance is located in a public subnet and assigned a public ip, which can be accessed via ssh.
-<img src="https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/images/GPU_arch_draft.png" height ="580" width="1200">
+<img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/GPU_arch_draft.png" height ="580" width="1200">
 
 ## Login
 Login to the using opc as a username:
@@ -25,11 +25,11 @@ Note that if you are using resource manager, obtain the private key from the out
 ## Deployment
 
 Deploying this architecture on OCI can be done in different ways:
-* The [resource Manager](https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/Documentation/ResourceManager.md#deployment-through-resource-manager) let you deploy the infrastructure from the console. Only relevant variables are shown but others can be changed in the zip file. 
-* The [web console](https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/Documentation/ManualDeployment.md#deployment-via-web-console) let you create each piece of the architecture one by one from a webbrowser. This can be used to avoid any terraform scripting or using existing templates. 
+* The [resource Manager](https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/master/Documentation/ResourceManager.md#deployment-through-resource-manager) let you deploy the infrastructure from the console. Only relevant variables are shown but others can be changed in the zip file. 
+* The [web console](https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/master/Documentation/ManualDeployment.md#deployment-via-web-console) let you create each piece of the architecture one by one from a webbrowser. This can be used to avoid any terraform scripting or using existing templates. 
 
 ## Licensing
-See [Third Party Licenses](https://github.com/oci-hpc/oci-hpc-runbook-gromacs/blob/master/Third_Party_Licenses) for Gromacs and terraform licensing, including dependencies used in this tutorial.
+See [Third Party Licenses](https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/master/Third_Party_Licenses) for Gromacs and terraform licensing, including dependencies used in this tutorial.
 
 ## Running the Application
 If the provided terraform scripts are used to launch the application, Gromacs is installed in the /mnt/block/Gromacs folder and the example benchmarking model is available in /mnt/block/work folder. Run Gromacs via the following commands:
