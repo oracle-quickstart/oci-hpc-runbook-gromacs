@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Oracle and/or its affiliates. All rights reserved.
 
 resource "oci_core_virtual_network" "GPU_VCN" {
-  cidr_block     = "10.0.0.0/16"
+  cidr_block     = var.VCN-CIDR
   compartment_id = var.compartment_ocid
   display_name   = "GPU_VCN"
   dns_label      = "gpuvcn"
@@ -10,7 +10,7 @@ resource "oci_core_virtual_network" "GPU_VCN" {
 
 resource "oci_core_subnet" "GPU_Public_Subnet" {
   availability_domain = var.availablity_domain_name
-  cidr_block          = "10.0.0.0/24"
+  cidr_block          = var.Subnet-CIDR
   display_name        = "GPU_Public_Subnet"
   dns_label           = "gpupubsubnet"
   security_list_ids   = [oci_core_security_list.PUBLIC-SECURITY-LIST.id]

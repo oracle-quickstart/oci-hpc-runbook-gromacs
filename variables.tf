@@ -22,6 +22,14 @@ variable "gpu_shape" {
   default = "VM.GPU2.1"
 }
 
+variable "VCN-CIDR" {
+  default = "10.0.0.0/16"
+}
+
+variable "Subnet-CIDR" {
+  default = "10.0.0.0/24"
+}
+
 # OS Images
 variable "instance_os" {
   description = "Operating system for compute instances"
