@@ -1,0 +1,179 @@
+title: "Deploy Gromacs on GPU machine in OCI"
+description: "Deploy a GPU machine on Oracle Cloud Infrastructure, install Gromacs, and run a benchmark using Parabricks software. "
+schemaVersion: 1.1.0
+version: "20190304"
+locale: "en"
+
+variableGroups:
+- title: "General Configuration"
+  visible: false
+  variables:
+  - tenancy_ocid
+  - region
+  - release
+  - devicePath
+  - block_nfs
+  - model_drive
+  - gpu_node_count
+
+- title: "Required Configuration"
+  visible: true  
+  variables:
+  - compartment_ocid
+  - availablity_domain_name
+  - gpu_shape
+  - show_advanced
+
+- title: "GPU Compute Optional Configuration"
+  visible: 
+      and:
+        - show_advanced
+  variables:
+  - instance_os
+  - linux_os_version
+  - vnc_password
+  - gpu_vnc
+  - gpu_node_count
+  - ssh_public_key
+  - size_block_volume
+
+- title: "Network Optional Configuration"
+  visible: 
+      and:
+        - show_advanced
+  variables:
+  - VCN-CIDR
+  - Subnet-CIDR
+
+- title: "Gromacs Optional Configuration"
+  visible: 
+      and:
+        - show_advanced
+  variables:
+  - gromacs_url
+  - model_url
+  - visualizer_url
+
+variables:
+
+  show_advanced:
+    type: boolean
+    title: "Show advanced options?"
+    description: "Shows advanced options."
+    visible: true
+    default: false
+
+  compartment_ocid:
+    type: oci:identity:compartment:id
+    required: true
+    visibile: true
+    title: Compartment
+    description: "Compartment where you want to create the solution resources"
+  
+  availablity_domain_name:
+    type: oci:identity:availabilitydomain:name
+    required: true
+    visibile: true
+    title: "Availability Domain to be chosen"
+    description: "Choose Availability Domain where your infrastructure will be deployed."
+    dependsOn:
+      regionName: ${region}
+      compartmentId: ${compartment_ocid}
+
+  gpu_shape:
+    type: enum
+    enum:
+    - "VM.GPU2.1"
+    - "BM.GPU2.2"
+    - "VM.GPU3.1"
+    - "VM.GPU3.2"
+    - "VM.GPU3.4"
+    - "BM.GPU3.8"
+    title: "Shape of the GPU Compute Node"
+    default: "VM.GPU2.1"
+    required: true
+
+  gpu_node_count:
+    type: string
+    title: "GPU Node Count"
+    required: true
+
+  gpu_vnc:
+    type: enum
+    enum:
+    - "x11vnc"
+    - "vnc"
+    - "none"
+    title: "VNC type for GPU"
+    description: "x11vnc for GPU usage, vnc or none"
+    required: true
+
+  instance_os:
+    type: enum
+    required: false
+    title: "Instance OS"
+    description: "An Operating System that determines the operating system for the instance."
+    default: "Oracle Linux"
+    enum:
+      - "Oracle Linux"
+      
+  linux_os_version:
+    type: enum
+    required: false
+    title: "Instance OS version"
+    description: "An Operating System version that determines the operating system version for the instance."
+    default: "7.9"
+    enum:
+      - "7.9"
+
+  vnc_password:
+    type: password
+    title: "Password for the VNC session of the GPU instance"
+    description: "default: 'HPC_oci1'"
+    required: false
+
+  size_block_volume:
+    type: integer
+    title: "Block Volume Size ( GB )"
+    description: "50 to  32,768 "
+    minimum: 50
+    maximum: 32768
+    required: true
+
+  gromacs_url:
+    type: string
+    title: "URL to download Gromacs"
+    description: "Replace url or leave blank if you wish to download later"
+    required: false
+
+  model_url:
+    type: string
+    title: "URL to download a model tarball"
+    description: "Replace url or leave blank if you wish to download later"
+    required: false    
+
+  visualizer_url:
+    type: string
+    title: "URL to download VMD Visualization Software"
+    description: "Replace url or leave blank if you wish to download later"
+    required: false
+
+outputs:
+
+  Private_key:
+    title: "Generated SSH Private Key"
+    displayText: "Generated SSH Private Key"
+    type: copyableString
+    visible: true
+
+  HeadNodesPublicIPs:
+    title: "HeadNodes Public IPs"
+    displayText: "HeadNode Public IPs"
+    type: string
+    visible: true
+
+  HeadNodesPrivateIPs:
+    title: "HeadNodes Private IPs"
+    displayText: "HeadNodes Private IPs"
+    type: string
+    visible: true
