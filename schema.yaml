@@ -140,6 +140,20 @@ variables:
     maximum: 32768
     required: true
 
+  VCN-CIDR:
+    type: string
+    required: false
+    default: "10.0.0.0/16"
+    pattern: "^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]).(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]).(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]).(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\/(3[0-2]|[1-2]?[0-9])$"
+    description: "VCN CIDR block where you want to create the solution resources."
+
+  Subnet-CIDR:
+    type: string
+    required: false
+    default: "10.0.0.0/24"
+    pattern: "^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]).(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]).(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]).(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\/(3[0-2]|[1-2]?[0-9])$"
+    description: "Private subnet's CIDR block where you want to place your GPU machines."
+
   gromacs_url:
     type: string
     title: "URL to download Gromacs"
