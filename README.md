@@ -13,7 +13,13 @@ Gromacs supports running on CPU's or GPU's and supports parallel processing. It 
 The architecture for this runbook is simple, a single machine running inside of an OCI VCN with a public subnet.  
 Since a GPU instance is used, block storage is attached to the instance and installed with the Gromacs application. 
 The instance is located in a public subnet and assigned a public ip, which can be accessed via ssh.
-<img src="https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/main/Images/GPU_arch_draft.png" height ="580" width="1200">
+
+For details of the architecture, see [_Deploy molecular dynamics and GROMACS applications_](https://docs.oracle.com/en/solutions/deploy-gromacs-on-oci/index.html)
+
+## Architecture Diagram
+
+![](./images/GPU_arch_draft.png)
+
 
 # Login
 Login to the using opc as a username:

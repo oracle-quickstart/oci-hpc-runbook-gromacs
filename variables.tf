@@ -1,14 +1,5 @@
-variable "gpu_node_count" {
-    default = "1"
-}
-variable "vnc_password" {
-    default = "HPC_oci1"
-}
-
-variable "release" {
-  description = "Reference Architecture Release (OCI Architecture Center)"
-  default     = "1.0"
-}
+## Copyright © 2020, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 variable "region" { }
 variable "tenancy_ocid" { }
@@ -17,6 +8,19 @@ variable "user_ocid" {}
 variable "fingerprint" {}
 variable "private_key_path" {}
 variable "availablity_domain_name" {}
+
+variable "release" {
+  description = "Reference Architecture Release (OCI Architecture Center)"
+  default     = "1.0"
+}
+
+variable "gpu_node_count" {
+    default = "1"
+}
+
+variable "vnc_password" {
+    default = "HPC_oci1"
+}
 
 variable "gpu_shape" { 
   default = "VM.GPU2.1"

@@ -1,3 +1,6 @@
+## Copyright © 2020, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+
 resource "oci_core_instance" "GPU_Instance" {
     count               = var.gpu_node_count
     compartment_id      = var.compartment_ocid
@@ -8,7 +11,6 @@ resource "oci_core_instance" "GPU_Instance" {
          
     source_details {
         source_type = "image"
-    #    source_id   = replace(var.gpu_shape, "GPU", "") != var.gpu_shape ?  lookup(data.oci_core_app_catalog_listing_resource_version.App_Catalog_Listing_Resource_Version, "listing_resource_id") : var.image_OracleLinux7_6[var.region]
         source_id = data.oci_core_images.InstanceImageOCID.images[0].id    
     }    
 
