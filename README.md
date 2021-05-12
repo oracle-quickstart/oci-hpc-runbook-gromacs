@@ -18,7 +18,7 @@ For details of the architecture, see [_Deploy molecular dynamics and GROMACS app
 
 ## Architecture Diagram
 
-![](./images/GPU_arch_draft.png)
+![](./Images/GPU_arch_draft.png)
 
 
 # Login
