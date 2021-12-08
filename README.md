@@ -50,6 +50,7 @@ Deploying this architecture on OCI can be done in different ways:
 3. Select the region where you want to deploy the stack.
 
 4. Follow the on-screen prompts and instructions to create the stack.
+   a. unclick use marketplace image and scroll down in the image dropdown for `Oracle-Linux-7.9-Gen2-GPU-2021.10.20-0`
 
 5. After creating the stack, click **Terraform Actions**, and select **Plan**.
 
