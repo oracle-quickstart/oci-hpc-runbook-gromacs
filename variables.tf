@@ -4,7 +4,7 @@ variable "targetCompartment" {}
 variable "ad" {}
 variable "ssh_key" {}
 variable "cluster_network" { default = true }
-variable "use_custom_name" {}
+variable "use_custom_name" { default = false }
 variable "cluster_name" { default = "" }
 variable "bastion_ad" {}
 variable "bastion_shape" {}
@@ -28,7 +28,7 @@ variable "cluster_nfs_path" { default = "/nfs/cluster" }
 variable "scratch_nfs_path" { default = "/nfs/scratch" }
 variable "vcn_compartment" { default = "" }
 variable "vcn_id" { default = "" }
-variable "use_existing_vcn" {}
+variable "use_existing_vcn" { default = false }
 variable "public_subnet_id" { default = "" }
 variable "private_subnet_id" { default = "" }
 variable "vcn_subnet" { default = "" }
@@ -38,8 +38,8 @@ variable "private_subnet" { default = "" }
 variable "ssh_cidr" { default = "0.0.0.0/0" }
 #gromacs
 variable "gromacs" { default = true }
-variable "gromacs_binaries" {}
-variable "gromacs_model" {}
+variable "gromacs_binaries" { default = "https://objectstorage.us-phoenix-1.oraclecloud.com/p/1qRcaB09pZAn7g3Fr878xpO_grM2z3-bYr5yPCEkhSy4ESHW8_gd-91nnVuSYcQ6/n/hpc/b/HPC_APPS/o/gromacs-compiled-2020.1.tar" }
+variable "gromacs_model" { default = "https://objectstorage.us-phoenix-1.oraclecloud.com/p/fyZU6e7ttYgjTGIQNnPNUG6btTkkUyDyG1K1qNEQJpE/n/hpc/b/HPC_APPS/o/gromacs_benchMEM.tpr" }
 variable "slurm" { default = false }
 variable "ldap" { default = true }
 variable "spack" { default = false }
@@ -50,13 +50,13 @@ variable "instance_pool_custom_memory" { default = false }
 variable "bastion_memory" { default = 16 }
 variable "bastion_custom_memory" { default = false }
 variable "marketplace_listing" {
-  default = "1. OL7.9-Gen2-GPU-2021.10.20-0"
+  default = "1. Oracle-Linux-7.9-Gen2-GPU-2021.10.20-0"
 }
 
 variable "marketplace_version_id" {
   type = map(string)
   default = {
-    "1" = "OL7.9-Gen2-GPU-2021.10.20-0"
+    "1" = "1. Oracle-Linux-7.9-Gen2-GPU-2021.10.20-0"
   }
 }
 
