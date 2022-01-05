@@ -1,3 +1,6 @@
+## Copyright © 2022, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+
 variable "region" {}
 variable "tenancy_ocid" {}
 variable "targetCompartment" {}
@@ -126,4 +129,9 @@ variable "bastion_username" {
 variable "compute_username" {
   type    = string
   default = "opc"
+}
+
+variable "release" {
+  description = "Reference Architecture Release (OCI Architecture Center)"
+  default     = "1.2"
 }
