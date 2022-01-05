@@ -1,6 +1,6 @@
 resource "oci_core_vcn" "vcn" {
   count          = var.use_existing_vcn ? 0 : 1
-  cidr_block     = var.vcn_subnet
+  cidr_blocks     = [var.vcn_subnet]
   compartment_id = var.targetCompartment
   display_name   = "${local.cluster_name}_VCN"
   dns_label      = "cluster"
