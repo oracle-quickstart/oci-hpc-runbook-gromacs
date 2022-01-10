@@ -132,6 +132,11 @@ variableGroups:
     variables: 
       - ${configure}
 variables:
+  release:
+    title: "OCI Architecture Release"
+    description: "OCI Architecture Release"
+    type: string
+    visible: false
   targetCompartment:
     title: "target compartment"
     type: oci:identity:compartment:id
@@ -508,9 +513,23 @@ variables:
             - ${use_marketplace_image}
         - not:
             - ${unsupported}
+ 
+  image_name:
+    type: enum
+    title: "Image name"
+    description: "Customer Image Name for compute nodes"
+    required: true
+    enum:
+      - "Oracle-Linux-7.9-Gen2-GPU-2021.12.14-0"
+    default: "Oracle-Linux-7.9-Gen2-GPU-2021.12.14-0"
+    visible:
+      and:
+        - not:
+            - ${use_marketplace_image}
+        - ${unsupported}
 
   image:
-    title: "Image"
+    title: "Image OCID"
     description: "Custom image ID for compute nodes"
     type: oci:core:image:id
     required: true

@@ -27,6 +27,7 @@ variable "boot_volume_size" {}
 variable "use_marketplace_image" { default = false }
 variable "image" { default = "ocid1.image.oc1..aaaaaaaa5yxem7wzie34hi5km4qm2t754tsfxrjuefyjivebrxjad4jcj5oa" }
 variable "image_ocid" { default = "ocid1.image.oc1..aaaaaaaa5yxem7wzie34hi5km4qm2t754tsfxrjuefyjivebrxjad4jcj5oa" }
+variable "image_name" { default = "Oracle-Linux-7.9-Gen2-GPU-2021.12.14-0" }
 variable "unsupported_bastion_image" { default = "" }
 variable "use_cluster_nfs" { default = true }
 variable "use_scratch_nfs" { default = true }
@@ -91,6 +92,9 @@ variable "bastion_block_volume_size" {
 }
 variable "scratch_nfs_type_cluster" { default = "nvme" }
 variable "scratch_nfs_type_pool" { default = "none" }
+## Copyright © 2022, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+
 variable "cluster_block_volume_size" { default = "1000" }
 variable "cluster_block_volume_performance" { default = "10. Balanced performance" }
 
@@ -136,5 +140,5 @@ variable "compute_username" {
 
 variable "release" {
   description = "Reference Architecture Release (OCI Architecture Center)"
-  default     = "1.2"
+  default     = "1.1"
 }
