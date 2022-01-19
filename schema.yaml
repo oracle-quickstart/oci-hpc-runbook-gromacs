@@ -489,7 +489,7 @@ variables:
     title: "use marketplace image"
     description: "Use marketplace image, otherwise provide custom image OCID"
     required: true
-    default: true
+    default: false
 
   marketplace_listing:
     type: enum
@@ -519,20 +519,13 @@ variables:
     title: "Image name"
     description: "Customer Image Name for compute nodes"
     required: true
-    enum:
-      - "Oracle-Linux-7.9-Gen2-GPU-2021.12.14-0"
-    default: "Oracle-Linux-7.9-Gen2-GPU-2021.12.14-0"
-    visible:
-      and:
-        - not:
-            - ${use_marketplace_image}
-        - ${unsupported}
+    visible: false
 
   image:
     title: "Image OCID"
     description: "Custom image ID for compute nodes"
     type: oci:core:image:id
-    required: true
+    required: false
     dependsOn:
       compartmentId: ${compute_image_compartment}
     visible:
