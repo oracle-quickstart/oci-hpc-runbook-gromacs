@@ -18,7 +18,7 @@ For details of the architecture, see [_Deploy molecular dynamics and GROMACS app
 
 ## Architecture Diagram
 
-![](./Images/GPU_arch_draft.png)
+![](https://github.com/oracle-quickstart/oci-hpc-runbook-gromacs/blob/dev/Images/GPU_CN_RefArch.png)
 
 
 # Login
@@ -116,7 +116,7 @@ If the provided terraform scripts are used to launch the application, Gromacs is
 
 1. Run Gromacs on OCI GPU shapes via the following command:
    ```
-    gmx mdrun -s <file path> -ntmpi <# of cores> -gpu_id <GPU devices to use>
+    gmx mdrun -s <file path> -gpu_id <GPU devices to use>
    ```
    where:
      * mdrun = program that reads the input file and execues the computational chemistry analysis
@@ -129,14 +129,9 @@ If the provided terraform scripts are used to launch the application, Gromacs is
    gmx mdrun -s gromacs_benchMEM.tpr
    ```
 
-   Example for BM.GPU2.2:
-   ```
-   gmx mdrun -s gromacs_benchMEM.tpr -ntmpi 24 -gpu_id 01
-   ```
-
    Example for BM.GPU3.8:
    ```
-   gmx mdrun -s gromacs_benchMEM.tpr -ntmpi 48 -gpu_id 01234567
+   gmx mdrun -s gromacs_benchMEM.tpr -gpu_id 01234567
    ```
 
 2. Once the run is complete, refer to the bottom of the terminal for performance numbers. The run will show the ns/day for the number of cores that were run.
